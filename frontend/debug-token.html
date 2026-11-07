@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Token Debug</title>
+</head>
+<body>
+    <h1>Token Debug</h1>
+    <div id="token-info"></div>
+    
+    <script>
+        const token = localStorage.getItem('token');
+        const user = localStorage.getItem('user');
+        
+        document.getElementById('token-info').innerHTML = `
+            <h2>Token Status:</h2>
+            <p><strong>Token exists:</strong> ${!!token}</p>
+            <p><strong>Token length:</strong> ${token ? token.length : 0}</p>
+            <p><strong>Token preview:</strong> ${token ? token.substring(0, 50) + '...' : 'No token'}</p>
+            <h2>User Info:</h2>
+            <p><strong>User data:</strong> ${user || 'No user data'}</p>
+        `;
+    </script>
+</body>
+</html>

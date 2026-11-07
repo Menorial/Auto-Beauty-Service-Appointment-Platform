@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>日期格式化测试</title>
+</head>
+<body>
+    <h1>日期格式化测试</h1>
+    <div id="result"></div>
+
+    <script>
+        // 复制我们的格式化函数
+        const formatDateTime = (date, format = 'YYYY-MM-DD HH:mm:ss') => {
+          if (!date || date === null || date === undefined) {
+            return ''
+          }
+          
+          try {
+            let dateObj
+            
+            // 处理数组格式的日期 [2023, 9, 23, 18, 30, 0]
+            if (Array.isArray(date)) {
+              if (date.length >= 3) {
+                // Java LocalDateTime 数组格式: [年, 月, 日, 时, 分, 秒]
+                const [year, month, day, hour = 0, minute = 0, second = 0] = date
+                dateObj = new Date(year, month - 1, day, hour, minute, second)
+              } else {
+                return ''
+              }
+            }
+            // 处理字符串格式
+            else if (typeof date === 'string') {
+              // 处理各种字符串格式
+              dateObj = new Date(date)
+            }
+            // 处理Date对象
+            else if (date instanceof Date) {
+              dateObj = date
+            }
+            // 处理数字时间戳
+            else if (typeof date === 'number') {
+              dateObj = new Date(date)
+            }
+            // 处理对象格式 {year: 2023, month: 9, day: 23, ...}
+            else if (typeof date === 'object' && date.year) {
+              dateObj = new Date(
+                date.year, 
+                (date.month || date.monthValue || 1) - 1, 
+                date.day || date.dayOfMonth || 1,
+                date.hour || 0,
+                date.minute || 0,
+                date.second || 0
+              )
+            }
+            else {
+              return ''
+            }
+            
+            // 检查日期是否有效
+            if (!dateObj || isNaN(dateObj.getTime())) {
+              return ''
+            }
+            
+            const year = dateObj.getFullYear()
+            const month = String(dateObj.getMonth() + 1).padStart(2, '0')
+            const day = String(dateObj.getDate()).padStart(2, '0')
+            const hours = String(dateObj.getHours()).padStart(2, '0')
+            const minutes = String(dateObj.getMinutes()).padStart(2, '0')
+            const seconds = String(dateObj.getSeconds()).padStart(2, '0')
+            
+            // 根据格式返回相应的字符串
+            switch (format) {
+              case 'YYYY-MM-DD':
+                return `${year}-${month}-${day}`
+              case 'YYYY-MM-DD HH:mm':
+                return `${year}-${month}-${day} ${hours}:${minutes}`
+              case 'YYYY-MM-DD HH:mm:ss':
+                return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
+              case 'MM-DD HH:mm':
+                return `${month}-${day} ${hours}:${minutes}`
+              case 'HH:mm':
+                return `${hours}:${minutes}`
+              default:
+                return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
+            }
+          } catch (error) {
+            console.error('日期格式化错误:', error, '原始日期:', date)
+            return ''
+          }
+        }
+
+        // 测试数据
+        const testDate = [2025, 9, 15, 19, 28, 34]
+        const result = formatDateTime(testDate)
+        
+        document.getElementById('result').innerHTML = `
+            <p>原始数据: ${JSON.stringify(testDate)}</p>
+            <p>格式化结果: ${result}</p>
+        `
+        
+        console.log('测试结果:', result)
+    </script>
+</body>
+</html>

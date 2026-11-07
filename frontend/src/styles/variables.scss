@@ -1,0 +1,72 @@
+// 主题色彩 - 现代化配色方案
+$primary-color: #85CACF; // 主色：蓝青
+$primary-light: #A8DEE0; // 浅色主调
+$primary-dark: #85CACF; // 深色主调（用于hover/active等）
+$primary-gradient: linear-gradient(135deg, #A7D676 0%, #85CACF 100%);
+
+$success-color: #A7D676; // 成功/完成：绿色主调
+$warning-color: #FDC68E; // 警示/待处理：橘色主调
+$danger-color: #EF4444; // 现代红色
+$info-color: #A8DEE0;
+
+// 文字颜色 - 更好的对比度
+$text-primary: #1F2937;
+$text-regular: #374151;
+$text-secondary: #6B7280;
+$text-placeholder: #9CA3AF;
+
+// 边框颜色 - 更柔和的边框
+$border-base: #E5E7EB;
+$border-light: #F3F4F6;
+$border-lighter: #F9FAFB;
+$border-extra-light: #FAFAFA;
+
+// 背景色 - 层次分明的背景（页面底色改为纯白）
+$background-color: #fff;
+$background-light: #FFFFFF;
+$background-dark: #F3F4F6;
+
+// 渐变色 - 增加视觉吸引力
+$gradient-primary: linear-gradient(135deg, #A7D676 0%, #85CACF 100%);
+$gradient-success: linear-gradient(135deg, #A7D676 0%, #85CACF 100%);
+$gradient-warning: linear-gradient(135deg, #FDC68E 0%, #F9E2AE 100%);
+$gradient-danger: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+
+// 间距 - 更宽敞的间距系统
+$spacing-xs: 6px;
+$spacing-sm: 12px;
+$spacing-md: 20px;
+$spacing-lg: 32px;
+$spacing-xl: 48px;
+$spacing-2xl: 64px;
+
+// 圆角 - 更现代的圆角
+$border-radius-sm: 4px;
+$border-radius-base: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+$border-radius-2xl: 24px;
+$border-radius-full: 9999px;
+
+// 阴影 - 更精致的阴影效果
+$box-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$box-shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$box-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$box-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$box-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$box-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+$box-shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.1); // 兼容旧代码
+
+// 字体大小 - 更大气的字号体系
+$font-size-xs: 13px;
+$font-size-sm: 15px;
+$font-size-base: 17px;
+$font-size-lg: 20px;
+$font-size-xl: 24px;
+$font-size-2xl: 28px;
+$font-size-3xl: 36px;
+
+// 过渡动画
+$transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
